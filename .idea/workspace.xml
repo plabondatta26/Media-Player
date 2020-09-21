@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="914368a0-fc1b-4216-bed0-c876a115caac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Amar_dhulobali_joma_boi_-_টইটল_১০১_-_Raihan_Rahee_-_bangla_new_song_2020.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Amar_dhulobali_joma_boi_-_টইটল_১০১_-_Raihan_Rahee_-_bangla_new_song_2020_55IRv0L.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Apna_time_aayega_--_full_song_lyrics.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Arman_Alif_-_Oporadhi_-_অপরধ_-_Bengali_Song_-_2018.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Baje_Shobhab_I_Prithwi_Raj_ft__Rehaan_I_Jilapi_Originals_I_2018.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Coffee_House_cover_song_-_Bohubrihi_বহবরহ_the_band.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Lakshmir_Panchali_-_Lakshmi_Vandana_by_Mousumi_Chattopadhyay_-_Lakshmi_Puja_-_Ben_TCvYF3v.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Lakshmir_Panchali_-_Lakshmi_Vandana_by_Mousumi_Chattopadhyay_-_Lakshmi_Puja_-_Ben_z863Ij5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Ma_Lakkhi_Aarti_-_Lakshmi_Puja_-_Lokkhi_Gaan_-_Bangla_Song_by_Antara_Nandy.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Ma_Lakkhi_Aarti_-_Lakshmi_Puja_-_Lokkhi_Gaan_-_Bangla_Song_by_Antara_Nandy_0c3QrOo.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/মঝ_মঝ_তব_দখ_পই_-_Majhe_Majhe_Tobo_Dekha_Pai_by_Arnob_with_Bangla_Lyric.mkv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +87,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
