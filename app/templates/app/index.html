@@ -19,6 +19,7 @@
                         <source src="{{ MEDIA_URL }}{{ v.file }}"  type="video/mp4">
                     </video>
                     <a href="{% url 'play' v.id %}" ><h3>{{v.title}}</h3></a> <br>
+                    <a href="{% url 'play' v.id %}" ><h3>{{v.created_on}}</h3></a> <br>
             <br>
 
                 </div>

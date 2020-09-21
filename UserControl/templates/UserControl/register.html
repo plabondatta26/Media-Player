@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="form">
+        <div>
+            <form action="" method="post">
+                {%csrf_token%}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" id="contact" name="contact" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" id="password1" name="password1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" class="form-control">
+                </div>
+                <div class="form-group">
+                     <input type="submit" value="Create Account">
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="{%static 'app/js/jquery.js'%}"></script>
+<script src="{%static 'app/js/popper.js'%}"></script>
+<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
+</body>
+</html>

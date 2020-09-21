@@ -19,12 +19,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 from app.views import File_upload, showvideo,play_video
+from UserControl import views as us
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('upload/', File_upload, name='upload'),
-    path('home/', showvideo, name='home'),
-    path('play/<int:id>/', play_video, name='play')
+    path('', showvideo, name='home'),
+    path('play/<int:id>/', play_video, name='play'),
+    path('login/', us.Loginview, name='login'),
+    path('register/', us.RegisterView, name='register'),
 
 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
