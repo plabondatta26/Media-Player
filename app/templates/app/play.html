@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>play</title>
+    <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2>{{video.title}}</h2>
+            <video style="width: 100%; height:auto" controls>
+                <source src='{{ MEDIA_URL }}{{ video.file }}' type="video/mp4">
+            </video>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+            {%for l in list %}
+                <div>
+                    <video style="width:100%; height:200px">
+                        <source src="{{ MEDIA_URL }}{{ l.file }}"  type="video/mp4">
+                    </video>
+                    <a href="{% url 'play' l.id %}" style="color:black"><h3>{{l.title}}</h3></a>
+                </div>
+            <br>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="{% static 'app/js/jquery.js'%}"></script>
+<script src="{% static 'app/js/popper.js'%}"></script>
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'app/js/jquery5.1.js'%}"></script>
+
+</body>
+</html>

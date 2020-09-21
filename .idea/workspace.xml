@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="914368a0-fc1b-4216-bed0-c876a115caac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Amar_dhulobali_joma_boi_-_টইটল_১০১_-_Raihan_Rahee_-_bangla_new_song_2020.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Amar_dhulobali_joma_boi_-_টইটল_১০১_-_Raihan_Rahee_-_bangla_new_song_2020_55IRv0L.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Apna_time_aayega_--_full_song_lyrics.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Arman_Alif_-_Oporadhi_-_অপরধ_-_Bengali_Song_-_2018.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Baje_Shobhab_I_Prithwi_Raj_ft__Rehaan_I_Jilapi_Originals_I_2018.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Coffee_House_cover_song_-_Bohubrihi_বহবরহ_the_band.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Lakshmir_Panchali_-_Lakshmi_Vandana_by_Mousumi_Chattopadhyay_-_Lakshmi_Puja_-_Ben_TCvYF3v.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Lakshmir_Panchali_-_Lakshmi_Vandana_by_Mousumi_Chattopadhyay_-_Lakshmi_Puja_-_Ben_z863Ij5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Ma_Lakkhi_Aarti_-_Lakshmi_Puja_-_Lokkhi_Gaan_-_Bangla_Song_by_Antara_Nandy.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/Ma_Lakkhi_Aarti_-_Lakshmi_Puja_-_Lokkhi_Gaan_-_Bangla_Song_by_Antara_Nandy_0c3QrOo.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/videos/মঝ_মঝ_তব_দখ_পই_-_Majhe_Majhe_Tobo_Dekha_Pai_by_Arnob_with_Bangla_Lyric.mkv" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hjAwu3HBEIGH3pKnDWCTveXIcb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="H:/Django/MyDairy_with_login" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Player" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="914368a0-fc1b-4216-bed0-c876a115caac" name="Default Changelist" comment="" />
+      <created>1600514369389</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600514369389</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
