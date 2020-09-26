@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">PDtube</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  {% if user.is_authenticated%}
+                      <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload</a>
+                      </li>
+
+            </ul>
+                    <form class="form-inline my-2 my-lg-0" style="list-style:none">
+
+            <li class="nav-item">
+              <h6>{{user.username}}</h6>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-danger" href="/logout">Logout</a>
+            </li>
+            </form>
+                {%else%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">login</a>
+                        </li>
+                    </form>
+                {%endif%}
+        </div>
+    </nav>
+
+</head>
+<body>
+<h1>Reset Password</h1>
+
+{{fm.as_p}}
+
+<script src="{%static 'app/js/jquery.js'%}"></script>
+<script src="{%static 'app/js/popper.js'%}"></script>
+<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
+</body>
+</html>

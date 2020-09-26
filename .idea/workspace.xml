@@ -2,12 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="914368a0-fc1b-4216-bed0-c876a115caac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Bootstrap &amp; css link" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserControl/static/UserControl/css/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/resetps.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScreenShot/Home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScreenShot/Play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScreenShot/upload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,6 +47,7 @@
   <component name="ProjectId" id="1hjAwu3HBEIGH3pKnDWCTveXIcb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="H:/Django/MyDairy_with_login" />

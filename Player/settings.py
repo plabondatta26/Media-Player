@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'UserControl',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+RECAPTCHA_PUBLIC_KEY = '76wtgdfsjhsydt7r5FFGFhgsdfytd656sad75fgh' # fake - for the purpose of this post.
+RECAPTCHA_PRIVATE_KEY = '98dfg6df7g56df6gdfgdfg65JHJH656565GFGFGs' # fake - for the purpose of this post.
+NOCAPTCHA = True
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

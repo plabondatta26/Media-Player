@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'UserControl/css/stylesheet.css'%}" type="text/css">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">PDtube</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  {% if user.is_authenticated%}
+                      <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload</a>
+                      </li>
+
+            </ul>
+                    <form class="form-inline my-2 my-lg-0" style="list-style:none">
+
+            <li class="nav-item">
+              <h6>{{user.username}}</h6>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-danger" href="/logout">Logout</a>
+            </li>
+            </form>
+                {%else%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">login</a>
+                        </li>
+                    </form>
+                {%endif%}
+        </div>
+    </nav>
+
+
+</head>
+<body>
+
+<div class="container" id="prp">
+    <div class="row">
+        <h1>Profile picture</h1>
+    </div>
+</div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h1> Name: {{request.user.name}}</h1>
+            <h6>Contact: {{request.user.contact}} </h6>
+            <h6>Email: {{request.user.username}} </h6>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-8">
+            {% for p in post %}
+                <video style="width:300px;height:300px" controls>
+                    <source src='{{MEDIA_URL}}{{p.file}}' type="video/mp4">
+                </video>
+                <a href="{% url 'play' p.id %}" ><h2>{{p.title}}</h2></a> <br>
+                <h6><a href="{% url 'delete' p.id %}">Delete</a> <a href="{% url 'edit' p.id %}">Edit</a> </h6>
+                <h6>{{p.created_on}}</h6>
+                {%if p.make_privet is True%}
+                    <h6 style="color:red">Privet video</h6>
+                {%else%}
+                    <h6 style="color:green">public video</h6>
+                {%endif%}
+
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<script src="{%static 'app/js/jquery.js'%}"></script>
+<script src="{%static 'app/js/popper.js'%}"></script>
+<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
+</body>
+</html>
