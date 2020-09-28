@@ -10,3 +10,8 @@ class Video(models.Model):
     user = models.ForeignKey(User,blank=False ,on_delete=models.CASCADE )
     def __str__(self):
         return self.title
+
+class Comment_Model(models.Model):
+    comment= models.TextField(max_length=1000, blank=True, unique=False)
+    comment_video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
+    comment_user= models.ForeignKey(User, blank=False, on_delete=models.CASCADE)

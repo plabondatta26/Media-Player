@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Video
-from .forms import video_upload
+from .models import Video, Comment_Model
+from .forms import video_upload, commentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -10,9 +10,7 @@ def File_upload(request):
     form= video_upload()
     if request.user.is_authenticated:
         user_id = User.objects.get(id=request.user.id)
-        print(user_id)
         if request.method=='POST':
-            print('post')
             form= video_upload(request.POST or None, request.FILES or None)
             if form.is_valid():
                 form_obj = form.save(commit=False)
@@ -29,28 +27,42 @@ def showvideo(request): # Show Video List in UI
         return render(request, 'app/index.html', {'video': video})
 
 def play_video(request, id): # Show clicked Video with list into UI
+    user_id = User.objects.get(id=request.user.id)
     video = Video.objects.get(pk=id)
     list = Video.objects.all()
-    return render(request, 'app/play.html', {'video':video, 'list':list})
+    comments = Comment_Model.objects.filter(comment_video=id)
+    comment_form = commentForm()
+    if request.method=='POST':
+        if request.user.is_authenticated:
+            comment_form = commentForm(request.POST)
+            if comment_form is not None:
+                if comment_form.is_valid():
+                    fm_obj = comment_form.save(commit=False)
+                    fm_obj.comment_user = User.objects.get(pk=request.user.id)
+                    fm_obj.comment_video = video
+                    fm_obj.save()
+                    return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
+    return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
+
+
 
 
 @login_required()
 def DeleteView(request, id):
-    print('id=',id)
     video= Video.objects.get(pk=id)
     video.delete()
     return redirect('profile')
 
 
+"""
 @login_required()
 def EditView(request, id):
     usr = request.user
     video= Video.objects.get(pk=id)
-    print(video)
     fm = video_upload(request.POST or None, request.FILES or None, instance=usr)
     if fm.is_valid():
-        print('valid')
         fm.save(commit=True)
         return redirect('profile')
     fm= video_upload()
     return render(request, 'app/Edit.html', {'fm':fm, 'video':video})
+"""

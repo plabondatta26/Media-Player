@@ -73,7 +73,7 @@
                     <source src='{{MEDIA_URL}}{{p.file}}' type="video/mp4">
                 </video>
                 <a href="{% url 'play' p.id %}" ><h2>{{p.title}}</h2></a> <br>
-                <h6><a href="{% url 'delete' p.id %}">Delete</a> <a href="{% url 'edit' p.id %}">Edit</a> </h6>
+                <h6><a href="{% url 'delete' p.id %}">Delete</a> </h6>
                 <h6>{{p.created_on}}</h6>
                 {%if p.make_privet is True%}
                     <h6 style="color:red">Privet video</h6>

@@ -59,7 +59,35 @@
             <video style="width: 100%; height:auto" controls>
                 <source src='{{ MEDIA_URL }}{{ video.file }}' type="video/mp4">
             </video>
+           <br>
+           <br>
+
+            {% if user.is_authenticated %}
+            <div class="container ">
+                 <div class="row">
+                     <div class="col-lg-8">
+                         <h4><b>Comments</b></h4>
+                         <hr>
+                         <form action="" method="post">
+                            {% csrf_token %}
+                             <div>
+                                 <input type="text" class="form-group" id="comment" name="comment" style="width:300px; height: 100px">
+                                 <input type="submit" class="form-group btn btn-success" value="Comment">
+                             </div>
+
+                         </form>
+                    </div>
+                 </div>
+            </div>
+            {% endif %}
+            {% for c in comments %}
+                <div class="container">
+                     <h5> {{c.comment_user}} </h5>
+                     <p> {{c.comment}} </p>
+                </div>
+            {% endfor %}
         </div>
+
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
             {%for l in list %}
