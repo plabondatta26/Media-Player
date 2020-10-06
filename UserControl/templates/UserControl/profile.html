@@ -6,6 +6,7 @@
     <title>profile</title>
     <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'UserControl/css/stylesheet.css'%}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,20 +55,32 @@
 
 <div class="container" id="prp">
     <div class="row">
-        <h1>Profile picture</h1>
+        <div class=" container">
+            <div class="row">
+                <div class="col-md-3" id="profile_picture">
+                    <image src='{{MEDIA_URL}}{{details.image}}'alt="User avatar" type="image" class="profile_pic"></image>
+                    <a href="{%url 'change_p_pic' %}" id="change_pp"><i class="fa fa-camera"></i> Change profile picture</a>
+                </div>
+
+                <div class="col-md-3" id="details_area">
+                    <h1> Name: {{details.name}}</h1>
+                    <h6>Contact: {{details.contact}} </h6>
+                    <h6>Email: {{details.user.username}} </h6>
+                    <h6>Birthday: {{details.birthday}} </h6>
+                    <h6>address: {{details.address}} </h6>
+                    <a href="{% url 'update_profile'%}" class="btn btn-warning">Update Profile</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-    <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <h1> Name: {{request.user.name}}</h1>
-            <h6>Contact: {{request.user.contact}} </h6>
-            <h6>Email: {{request.user.username}} </h6>
-        </div>
 
-        <div class="col-md-1"></div>
 
-        <div class="col-md-8">
+
+
+
+
+
             {% for p in post %}
                 <video style="width:300px;height:300px" controls>
                     <source src='{{MEDIA_URL}}{{p.file}}' type="video/mp4">
@@ -82,9 +95,6 @@
                 {%endif%}
 
                 {% endfor %}
-        </div>
-    </div>
-</div>
 
 
 <script src="{%static 'app/js/jquery.js'%}"></script>

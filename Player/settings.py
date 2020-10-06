@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'UserControl',
     'captcha',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Player.urls'
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
-MEDIA_URL= "/media/"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 TEMPLATES = [
@@ -126,6 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
+MEDIA_URL= "/media/"
 
 
 RECAPTCHA_PUBLIC_KEY = '76wtgdfsjhsydt7r5FFGFhgsdfytd656sad75fgh' # fake - for the purpose of this post.

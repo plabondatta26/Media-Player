@@ -12,6 +12,34 @@ class Video(models.Model):
         return self.title
 
 class Comment_Model(models.Model):
-    comment= models.TextField(max_length=1000, blank=True, unique=False)
+    comment= models.TextField(max_length=1000, blank=False, null=False, unique=False)
     comment_video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
     comment_user= models.ForeignKey(User, blank=False, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.comment_video ,  self.comment
+
+
+
+
+""""
+------------------------------------ Next Update--------------------------------
+
+
+
+
+class Like(models.Model):
+    like = models.IntegerField()
+    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
+
+class DiLike(models.Model):
+    dislike = models.IntegerField()
+    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
+
+class LikedComment(models.Model):
+    like = models.IntegerField()
+    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
+
+class DiLikeComment(models.Model):
+    dislike = models.IntegerField()
+    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
+    """

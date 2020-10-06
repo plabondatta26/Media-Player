@@ -6,7 +6,7 @@
     <title>play</title>
     <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px;    ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,16 +65,15 @@
             {% if user.is_authenticated %}
             <div class="container ">
                  <div class="row">
-                     <div class="col-lg-8">
+                     <div  >
                          <h4><b>Comments</b></h4>
                          <hr>
-                         <form action="" method="post">
+                         <form action="" method="post" style="max-height:100px;">
                             {% csrf_token %}
-                             <div>
-                                 <input type="text" class="form-group" id="comment" name="comment" style="width:300px; height: 100px">
-                                 <input type="submit" class="form-group btn btn-success" value="Comment">
-                             </div>
-
+                             <div  >
+                                 <textarea type="text" class="form-group" id="comment" name="comment" style="width:400px; max-height:50px; border-radius: 10px;"></textarea>
+                                 <input type="submit" class="form-group btn btn-success" style="margin-bottom:70px" value="Comment">
+                             </div><hr>
                          </form>
                     </div>
                  </div>
@@ -84,6 +83,9 @@
                 <div class="container">
                      <h5> {{c.comment_user}} </h5>
                      <p> {{c.comment}} </p>
+                    {% if request.user.id == c.id%}
+                     <a href="{%url 'delete_comment' c.id%}" style="color:red">Delete comment</a></h5>
+                    {%endif%}
                 </div>
             {% endfor %}
         </div>
@@ -92,10 +94,11 @@
         <div class="col-lg-3">
             {%for l in list %}
                 <div>
-                    <video style="width:100%; height:200px">
+                    <a href="{% url 'play' l.id %}" style="color:black"><h3>{{l.title}}</h3></a>
+                    <video style="max-width:200px; height:auto">
                         <source src="{{ MEDIA_URL }}{{ l.file }}"  type="video/mp4">
                     </video>
-                    <a href="{% url 'play' l.id %}" style="color:black"><h3>{{l.title}}</h3></a>
+
                 </div>
             <br>
             {%endfor%}

@@ -20,7 +20,6 @@ def File_upload(request):
         form = video_upload()
         return render(request, 'app/upload.html', {'form': form})
 
-
 def showvideo(request): # Show Video List in UI
     video= Video.objects.filter(make_privet=False).order_by('-created_on')
     if video is not None:
@@ -44,15 +43,30 @@ def play_video(request, id): # Show clicked Video with list into UI
                     return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
     return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
 
-
-
-
 @login_required()
 def DeleteView(request, id):
     video= Video.objects.get(pk=id)
     video.delete()
     return redirect('profile')
 
+@login_required(login_url='login')
+def DeleteComment(request,id):
+    if request.user.is_authenticated:
+        comment = Comment_Model.objects.get(id=id)
+        video= str(comment.comment_video.id)
+        comment.delete()
+        link = '/play/'+video+'/'
+        return redirect(link)
+
+"""
+@login_required(login_url='login')
+def EditComment(request,id):
+    comment = Comment_Model.objects.get(id=id)
+    video = str(comment.comment_video.id)
+    commentForm(request.POST)
+    
+    link = '/play/' + video + '/'
+    return redirect(link) """
 
 """
 @login_required()
@@ -66,3 +80,4 @@ def EditView(request, id):
     fm= video_upload()
     return render(request, 'app/Edit.html', {'fm':fm, 'video':video})
 """
+

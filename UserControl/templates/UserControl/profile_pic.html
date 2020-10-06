@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Picture</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form enctype="multipart/form-data" action="" method="post">
+             {% csrf_token %}
+              {{ form|crispy }}
+
+            <div class="form-group">
+                <input type="submit" value="Ok" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

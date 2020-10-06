@@ -5,4 +5,35 @@ margin: 0 auto;
 
 #prp{
 height:300px;
-background-color: blue;}
+background-color: blue;
+border-radius:10px;
+}
+
+.profile_pic{
+height:200px;
+width:200px;
+border-radius:50%;
+margin-top:30px;
+margin-left:50px;
+}
+#change_pp{
+margin-top:10px;
+margin-left:50px;
+display: block;
+color:black;
+}
+
+#change_pp:hover{
+text-decoration:none;
+transition:0.5s;
+border-radius: 4px;
+max-width:200px;
+color:white;}
+
+#details_area{
+margin-top:20px;}
+
+#creatProfile{
+margin-top:10px;
+height:50px;
+}
