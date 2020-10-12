@@ -13,6 +13,7 @@ urlpatterns = [
     path('', media_player_views.showvideo, name='home'),
     url('upload/',media_player_views.File_upload, name='upload'),
     path('play/<int:id>/', media_player_views.play_video, name='play'),
+    path('reply/<int:vedioId>/<int:id>/', media_player_views.CommentReply, name='reply'),
     path('delete/<int:id>/', media_player_views.DeleteView, name= 'delete'),
     #path('edit/<int:id>/', EditView, name= 'edit'),
     path('delete_comment/<int:id>/', media_player_views.DeleteComment, name='delete_comment'),

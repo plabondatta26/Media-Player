@@ -6,22 +6,32 @@
       <change beforePath="$PROJECT_DIR$/Next Work" beforeDir="false" afterPath="$PROJECT_DIR$/Next Work" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/migrations/0002_auto_20201004_2234.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/migrations/0003_auto_20201006_1822.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserControl/migrations/0004_auto_20201007_0053.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/static/UserControl/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/static/UserControl/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0002_comment_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/play.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/videos/Apna_time_aayega_--_full_song_lyrics.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/3-Figure2-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/3-Figure2-1_jEsNklY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/IMG_0259.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/IMG_1005.png.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/IMG_1005.png_AEaVnz3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/IMG_1005.png_Z7nkTwv.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/IMG_1005.png_bSf6tbh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/new.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/new_s7YR2Nu.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,12 +56,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/media/images" />
+    <property name="last_opened_file_path" value="H:/Django/NLPChatBot" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP.LAPTOP-6KVK1FFU\Desktop\Player\app\templates\app" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP.LAPTOP-6KVK1FFU\Desktop\Player\UserControl\static\profiledefult_image" />
       <recent name="C:\Users\HP.LAPTOP-6KVK1FFU\Desktop\Player\media\images" />
     </key>
   </component>
@@ -67,7 +81,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.manage">
+    <configuration name="Chat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Player" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="H:/Work/Projects/ChatBot" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="H:/Work/Projects/ChatBot/Chat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Player" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="H:/Work/Projects/Data Visualizer app" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="H:/Work/Projects/Data Visualizer app/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Player" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,6 +148,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.manage" />
+        <item itemvalue="Python.Main" />
+        <item itemvalue="Python.Chat" />
       </list>
     </recent_temporary>
   </component>

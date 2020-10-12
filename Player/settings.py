@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'UserControl',
     'captcha',
     'crispy_forms',
+    'fontawesome',
 ]
 
 MIDDLEWARE = [

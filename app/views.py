@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
-from .models import Video, Comment_Model
-from .forms import video_upload, commentForm
+from django.shortcuts import render,redirect, get_object_or_404
+from .models import Video, Comment_Model, ReplyModel
+from .forms import video_upload, commentForm, ReplyCommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 @login_required(login_url='login')
@@ -26,22 +27,50 @@ def showvideo(request): # Show Video List in UI
         return render(request, 'app/index.html', {'video': video})
 
 def play_video(request, id): # Show clicked Video with list into UI
+    url = request.META.get('HTTP_REFERER')
     user_id = User.objects.get(id=request.user.id)
     video = Video.objects.get(pk=id)
     list = Video.objects.all()
-    comments = Comment_Model.objects.filter(comment_video=id)
+    comments = Comment_Model.objects.filter(is_aproved=True)
+    if request.method =='POST':
+        comment_form= commentForm(request.POST)
+        if comment_form.is_valid():
+            comment_obj = comment_form.save(commit=False)
+            comment_obj.comment_video = video
+            comment_obj.comment_user=user_id
+            comment_obj.save()
+            return HttpResponseRedirect(url)
     comment_form = commentForm()
+    context={'video': video,
+             'list': list,
+             'comments': comments,
+             'comment_form': comment_form}
+    return render(request, 'app/play.html', context)
+
+def CommentReply(request,vedioId, id):
+    url = request.META.get('HTTP_REFERER')
+    video = Video.objects.get(pk=vedioId)
+    parent_comment= Comment_Model.objects.get(pk=id)
+    print(parent_comment.created)
+    child_comment = ReplyModel.objects.filter(comment_video=vedioId, comment=id)
+    comment_form = ReplyCommentForm()
     if request.method=='POST':
-        if request.user.is_authenticated:
-            comment_form = commentForm(request.POST)
-            if comment_form is not None:
-                if comment_form.is_valid():
-                    fm_obj = comment_form.save(commit=False)
-                    fm_obj.comment_user = User.objects.get(pk=request.user.id)
-                    fm_obj.comment_video = video
-                    fm_obj.save()
-                    return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
-    return render(request, 'app/play.html', {'video':video, 'list':list, 'comments':comments,'comment_form':comment_form})
+        comment_form= ReplyCommentForm(request.POST)
+        if comment_form.is_valid():
+            reply_obj= comment_form.save(commit=False)
+            reply_obj.comment_video= video
+            reply_obj.comment=parent_comment
+            reply_obj.comment_user=request.user
+            reply_obj.save()
+            return HttpResponseRedirect(url)
+
+    context= {
+        'comment':parent_comment,
+        'replys':child_comment,
+        'form':comment_form
+
+    }
+    return render(request,'app/reply.html', context)
 
 @login_required()
 def DeleteView(request, id):
@@ -80,4 +109,3 @@ def EditView(request, id):
     fm= video_upload()
     return render(request, 'app/Edit.html', {'fm':fm, 'video':video})
 """
-
