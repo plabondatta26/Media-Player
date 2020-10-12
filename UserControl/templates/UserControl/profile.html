@@ -58,7 +58,11 @@
         <div class=" container">
             <div class="row">
                 <div class="col-md-3" id="profile_picture">
-                    <image src='{{MEDIA_URL}}{{details.image}}'alt="User avatar" type="image" class="profile_pic"></image>
+                    {% if details.image %}
+                        <img src="{{details.image.url}}" alt="User picture" class="profile_pic">
+                    {% else %}
+                        <img src="{% static 'profiledefult_image/avatar.jpg' %}" alt="User picture" class="profile_pic">
+                    {% endif %}
                     <a href="{%url 'change_p_pic' %}" id="change_pp"><i class="fa fa-camera"></i> Change profile picture</a>
                 </div>
 
@@ -74,27 +78,27 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-            {% for p in post %}
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-3">
                 <video style="width:300px;height:300px" controls>
-                    <source src='{{MEDIA_URL}}{{p.file}}' type="video/mp4">
+                    <source src='{{MEDIA_URL}}{{post.file}}' type="video/mp4">
                 </video>
-                <a href="{% url 'play' p.id %}" ><h2>{{p.title}}</h2></a> <br>
-                <h6><a href="{% url 'delete' p.id %}">Delete</a> </h6>
-                <h6>{{p.created_on}}</h6>
-                {%if p.make_privet is True%}
+                <a href="{% url 'play' post.id %}" ><h2>{{post.title}}</h2></a> <br>
+                <h6>{{post.created_on}}</h6>
+
+                {%if post.make_privet is True%}
                     <h6 style="color:red">Privet video</h6>
+                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
                 {%else%}
                     <h6 style="color:green">public video</h6>
+                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
                 {%endif%}
-
-                {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 
 <script src="{%static 'app/js/jquery.js'%}"></script>

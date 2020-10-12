@@ -58,8 +58,8 @@ def ResetPasswordView(request):
 def Profile(request):
     usr= request.user
     details =get_object_or_404(CreateProfile, user=usr)
-    post = Video.objects.filter(user=usr)
-    return render(request, 'UserControl/profile.html',{'post':post, 'details':details})
+    posts = Video.objects.filter(user=usr)
+    return render(request, 'UserControl/profile.html',{'posts':posts, 'details':details})
 
 
 @login_required(login_url='login')
