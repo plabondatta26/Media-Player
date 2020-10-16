@@ -2,8 +2,6 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CreateProfile
-#from captcha.fields import ReCaptchaField,ReCaptchaV3
-#from captcha.widgets import ReCaptchaV2Checkbox
 
 class RegisterForm(UserCreationForm):
     class Meta:

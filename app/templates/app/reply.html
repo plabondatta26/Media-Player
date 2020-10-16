@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-{% load static%}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <title>Reply</title>
+    <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px;    ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,28 +50,38 @@
 
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="video container">
-            {%for v in video %}
-                <div class="container" >
-                <div class=" video_container col-lg-3">
-                     <video class="video" id="video_list">
-                        <source src="{{ MEDIA_URL }}{{ v.file }}"  type="video/mp4">
-                    </video>
-                    <a href="{% url 'play' v.id %}" ><h5>{{v.title}}</h5></a>
-                    <h6>{{v.created_on}}</h6>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 ">
+                <div id="parent">
+                    <h1>{{comment}}</h1>
+                    <p> by <b style="color:green">{{comment.comment_user}}</b></p>
                 </div>
-                </div>
+                <div class="replys">
+                    {% for reply in replys %}
 
-            {%endfor%}
+                    <div id="replies">
+                        <h3> {{ reply }} </h3>
+                        <p> by <b style="color:green">{{reply.comment_user}}</b></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <form action="" method="post" id="replyfield" class="alert alert-warning">
+                     {%csrf_token%}
+                    <textarea class="reply_box" id="reply" name="reply"></textarea>
+                    <input type="submit" value="Leave a reply" id="replybtn" class="btn btn-secondary">
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="{%static 'app/js/jquery.js'%}"></script>
-<script src="{%static 'app/js/popper.js'%}"></script>
-<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'app/js/jquery.js'%}"></script>
+<script src="{% static 'app/js/popper.js'%}"></script>
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'app/js/jquery5.1.js'%}"></script>
+
 </body>
 </html>

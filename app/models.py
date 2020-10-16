@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Video(models.Model):
@@ -10,6 +11,33 @@ class Video(models.Model):
     user = models.ForeignKey(User,blank=False ,on_delete=models.CASCADE )
     def __str__(self):
         return self.title
+
+    def NoOfRating(self):
+        ratings = Rating.objects.filter(video = self)
+        return len(ratings)
+    def avgRatings(self):
+        sum = 0
+        ratings = Rating.objects.filter(video=self)
+        for rating in ratings:
+            sum += rating
+        if len(ratings)> 0:
+            avg_rating = sum / len(ratings)
+            return avg_rating
+        else:
+            return 0
+
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE, blank=False, null=False)
+    rating =models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+    def __str__(self):
+        return str(self.pk)
+    class Meta:
+        unique_together = (('user', 'video'),)
+        index_together = (('user', 'video'),)
+
 
 class Comment_Model(models.Model):
     comment= models.TextField(max_length=1000, blank=False, null=False, unique=False)
@@ -32,26 +60,3 @@ class ReplyModel(models.Model):
         return self.reply
 
 
-
-""""
------------------------------------- Next Update--------------------------------
-
-
-
-
-class Like(models.Model):
-    like = models.IntegerField()
-    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
-
-class DiLike(models.Model):
-    dislike = models.IntegerField()
-    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
-
-class LikedComment(models.Model):
-    like = models.IntegerField()
-    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
-
-class DiLikeComment(models.Model):
-    dislike = models.IntegerField()
-    video= models.ForeignKey(Video, blank=False, on_delete=models.CASCADE)
-    """

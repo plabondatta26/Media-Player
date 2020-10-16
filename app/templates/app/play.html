@@ -4,8 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>play</title>
+    <script>
+        function checkboxClick(){
+        var checkBox1 = document.getElementById("star1");
+        var checkBox2 = document.getElementById("star2");
+        var checkBox3 = document.getElementById("star3");
+        var checkBox4 = document.getElementById("star4");
+        var checkBox5 = document.getElementById("star5");
+
+        if (checkBox5.checked == true){
+                checkBox4.checked =true;
+                checkBox3.checked =true;
+                checkBox2.checked =true;
+                checkBox1.checked =true;
+        }
+        else if (checkBox4.checked == true){
+                checkBox3.checked =true;
+                checkBox2.checked =true;
+                checkBox1.checked =true;
+        }
+        else if (checkBox3.checked == true){
+                checkBox2.checked =true;
+                checkBox1.checked =true;
+        }
+        else(checkBox2.checked == true){
+                checkBox1.checked =true;
+        }
+
+  }
+        }
+    </script>
+    <link rel="stylesheet" href="{%static 'app/css/all.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px;    ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,108 +46,126 @@
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              {% if user.is_authenticated%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
                   </li>
-                  {% if user.is_authenticated%}
-                      <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/upload">Upload</a>
-                      </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/upload">Upload</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" style="list-style:none">
 
-            </ul>
-                    <form class="form-inline my-2 my-lg-0" style="list-style:none">
-
-            <li class="nav-item">
-              <h6>{{user.username}}</h6>
-            </li>
-            <li class="nav-item">
-                <a class="btn btn-danger" href="/logout">Logout</a>
-            </li>
-            </form>
-                {%else%}
+                <li class="nav-item">
+                  <h6>{{user.username}}</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger" href="/logout">Logout</a>
+                </li>
+                </form>
+              {%else%}
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
                     </li>
-                    <form class="form-inline my-2 my-lg-0">
+
                         <li class="nav-item">
                             <a class="nav-link" href="/login">login</a>
                         </li>
-                    </form>
+
                 {%endif%}
         </div>
     </nav>
-
-
 </head>
 <body>
-
     <div class="container">
         <div class="row">
-        <div class="col-lg-8">
-            <h2>{{video.title}}</h2>
-            <video style="width: 100%; height:auto" id="play_video" controls>
-                <source src='{{ MEDIA_URL }}{{ video.file }}' type="video/mp4">
-            </video>
+            <div class="col-lg-8">
+                <video id="play_video" controls>
+                    <source src='{{ MEDIA_URL }}{{ video.file }}' type="video/mp4">
+                </video>
+                <h2>{{video.title}}</h2>
+                <div class="review_section">
+                   <div id="avg_star">
+                       <h2>Ratings</h2>
+<!--                       <h3>{{avg_rating}}<i class="fa fa-star" id="rating_star"></i> out of {{no_rating}} ratings</h3>-->
+                       <h4>Average rating {{avg_rating}} by {{no_rating}} people </h4>
+                       <i class="{% if avg_rating < 1.0 %} far {% else %} fas {% endif %} fa-star"></i>
+                       <i class="{% if avg_rating < 2.0 %} far {% else %} fas {% endif %} fa-star"></i>
+                       <i class="{% if avg_rating < 3.0 %} far {% else %} fas {% endif %} fa-star"></i>
+                       <i class="{% if avg_rating < 4.0 %} far {% else %} fas {% endif %} fa-star"></i>
+                       <i class="{% if avg_rating < 5.0 %} far {% else %} fas {% endif %} fa-star"></i>
+                   </div><hr>
+                </div>
 
-            <div class="review_section">
-                <h3>Ratings</h3>
-               <h4> <i class="far fa-star"></i></h4>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="comments_section">
-                 <div class="row">
-                     <div class="col-lg-12">
-                         <h4 id="comment_label">Comments</h4>
-
-                         <form action="" method="post" id="comment_form">
+                {% if user.is_authenticated %}
+                    <div class="put_star">
+                        <h3>Add a review</h3>
+                        <form action="{% url 'add_rating' video_id=video.pk %}" method="post">
                             {% csrf_token %}
-                             <div  >
-                                 <textarea type="text" class="form-group" id="comment" name="comment"></textarea>
-                                 <input type="submit" class="form-group btn btn-success" style="margin-bottom:70px" value="Comment">
-                             </div>
-                         </form><hr>
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5">5 stars</label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4">4 stars</label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3">3 stars</label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2">2 stars</label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1">1 star</label>
+                            </fieldset>
+                            <input type="submit" value="Ok" class="btn btn-info">
+                        </form>
                     </div>
-                 </div>
-            </div>
-            {% endif %}
+                <hr>
+                <div class="comments_section">
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <h4 id="comment_label">Comments</h4>
 
-            <div class="container" id="comment_section">
-                {% for comment in comments %}
-
-                        <div id="user_comment">
-                            <p>{{comment}} </p>
-                            <p>{{comment.created|timesince}} ago <a href="{% url 'reply' video.id comment.id%}" class="btn btn-secondary">Reply</a>
-                            {% if comment.comment_user == request.user%}
-                                <a href="" class="btn btn-danger">Delete</a>
-                             {% endif%}
-                            </p>
+                             <form action="" method="post" id="comment_form">
+                                {% csrf_token %}
+                                 <div  >
+                                     <textarea type="text" class="form-group" id="comment" name="comment"></textarea>
+                                     <input type="submit" class="form-group btn btn-success" style="margin-bottom:70px" value="Comment">
+                                 </div>
+                             </form><hr>
                         </div>
-                {% endfor %}
+                     </div>
+                </div>
+                {% endif %}
+
+                <div class="container" id="comment_section">
+                    {% for comment in comments %}
+                            <div id="user_comment">
+                                <p>{{comment}} </p>
+                                <p>{{comment.created|timesince}} ago
+                                    <a href="{% url 'reply' video.id comment.id%}" class="btn btn-secondary">Reply</a>
+                                {% if comment.comment_user == request.user%}
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                 {% endif%}
+                                </p>
+                            </div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-        <div class="col-lg-1">
-        <div class="col-lg-3">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
                 {%for l in list %}
                     <div>
                         <a href="{% url 'play' l.id %}" style="color:black"><h3>{{l.title}}</h3></a>
                         <video style="max-width:200px; height:auto">
                             <source src="{{ MEDIA_URL }}{{ l.file }}"  type="video/mp4">
                         </video>
-
                     </div>
                 <br>
                 {%endfor%}
             </div>
+        </div>
     </div>
-
-
 
 
 <script src="{% static 'app/js/jquery.js'%}"></script>
 <script src="{% static 'app/js/popper.js'%}"></script>
+<script src="{% static 'app/js/all.min.js'%}"></script>
 <script src="{% static 'app/js/bootstrap.min.js'%}"></script>
 <script src="{% static 'app/js/jquery5.1.js'%}"></script>
 

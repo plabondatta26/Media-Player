@@ -45,14 +45,6 @@ def LogoutView(request):
     logout(request)
     return redirect('home')
 
-"""
-@login_required(login_url='login')
-def ResetPasswordView(request):
-    fm = Captcha()
-    return render(request, 'UserControl/resetps.html',{'fm':fm})
-"""
-
-
 
 @login_required(login_url='login')
 def Profile(request):
