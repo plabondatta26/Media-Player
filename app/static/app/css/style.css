@@ -19,11 +19,14 @@ float: left;
 }
 
 a{
-color: black;
+color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
 }
 .video{
 width:100%;
-height:auto;
+height:300px;
+margin: 5px;
 border-radius:6px;
 }
 

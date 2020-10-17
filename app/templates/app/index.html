@@ -53,17 +53,16 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="video container">
+        <div class="container">
             {%for v in video %}
                 <div class="container" >
-                <div class=" video_container col-lg-3" style="width:300px">
-                     <video class="video" id="video_list">
-                        <source src="{{ MEDIA_URL }}{{ v.file }}"  type="video/mp4">
-                    </video>
-                    <a href="{% url 'play' v.id %}" ><h5>{{v.title}}</h5></a>
-                    <h6>{{v.created_on}}</h6>
-
-                </div>
+                    <div class=" video_container col-lg-3">
+                         <video class="video" id="video_list">
+                            <source src="{{ MEDIA_URL }}{{ v.file }}"  type="video/mp4">
+                        </video>
+                        <a href="{% url 'play' v.id %}" ><h5>{{v.title}}</h5></a>
+                        <h6>{{v.created_on}}</h6>
+                    </div>
                 </div>
 
             {%endfor%}
