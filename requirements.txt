@@ -4,4 +4,3 @@ whitenoise
 psycopg2
 django-environ
 django-crispy-forms==1.9.2
-django-fontawesome==1.0
