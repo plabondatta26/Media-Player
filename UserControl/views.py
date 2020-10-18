@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render,redirect, get_object_or_404, HttpResponseRedirect
 from .forms import RegisterForm, Update_Profile, Update_Profile_Pic#, Captcha
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -27,15 +27,17 @@ def Loginview(request):
 
 
 def RegisterView(request):
-    if request.method=='POST':
-        fm= RegisterForm(request.POST)
-        if fm.is_valid():
-            fm.save()
+    form = RegisterForm()
+    if request.method == 'POST':
+        form= RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('login')
-        else:
-            redirect('register')
-    fm= RegisterForm()
-    return render(request, 'UserControl/register.html',{'fm':fm})
+
+    context = {
+        'form': form
+    }
+    return render(request, 'UserControl/register.html', context)
 
 
 

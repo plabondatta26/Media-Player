@@ -19,10 +19,11 @@ class Update_Profile(forms.ModelForm):
             "birthday": "Birthday",
             "address": "Address",
         }
+
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'contact': forms.TextInput(attrs={'class': 'form-control'}),
-            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name cannot exceed 100 characters'}),
+            'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact cannot exceed 100 characters (example: 01*********)'}),
+            'address': forms.TextInput(attrs={'class': 'form-control',  'placeholder':'Address cannot exceed 200 characters'}),
             'birthday': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'yy/mm/dd'}),
 
         }
@@ -31,6 +32,12 @@ class Update_Profile_Pic(forms.ModelForm):
     class Meta:
         model = CreateProfile
         fields = ['image', ]
+        labels = {
+            "image": "Picture",
+        }
+        widgets ={
+            'image': forms.FileInput(attrs={'class':'form-group', 'accept': 'image/*'})
+        }
 
 
 

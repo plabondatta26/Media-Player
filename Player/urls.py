@@ -10,10 +10,11 @@ urlpatterns = [
     path('', app.showvideo, name='home'),
     path('upload/',app.File_upload, name='upload'),
     path('play/<int:id>/', app.play_video, name='play'),
-    path('reply/<int:vedioId>/<int:id>/', app.CommentReply, name='reply'),
-    path('delete/<int:id>/', app.DeleteView, name= 'delete'),
+    path('reply/<int:id>/', app.CommentReply, name='reply'),
+    path('delete/<int:id>/', app.DeleteView, name='delete'),
     path('add_rating/<int:video_id>/', app.add_ratting, name='add_rating'),
     path('delete_comment/<int:id>/', app.DeleteComment, name='delete_comment'),
+    path('delete_reply/<int:comment>/<reply>/', app.DeleteReply, name='delete_reply'),
 
 
     path('login/', user.Loginview, name='login'),

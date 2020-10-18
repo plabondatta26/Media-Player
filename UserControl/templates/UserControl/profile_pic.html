@@ -1,14 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 {% load crispy_forms_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Profile Picture</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'UserControl/css/stylesheet.css'%}" type="text/css">
+
 </head>
 <body>
+<h2 class="alert alert-info">Upload Profile Picture</h2>
 <div class="container">
     <div class="row">
-        <form enctype="multipart/form-data" action="" method="post">
+        <form enctype="multipart/form-data" action="" method="post" class="alert alert-warning" style="margin:0 auto">
              {% csrf_token %}
               {{ form|crispy }}
 
@@ -18,5 +23,9 @@
         </form>
     </div>
 </div>
+
+<script src="{%static 'app/js/jquery.js'%}"></script>
+<script src="{%static 'app/js/popper.js'%}"></script>
+<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
 </body>
 </html>

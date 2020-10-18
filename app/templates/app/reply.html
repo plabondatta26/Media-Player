@@ -55,13 +55,18 @@
             <div class="col-lg-6 ">
                 <div id="parent">
                     <h1>{{comment}}</h1>
+                    <p>{{comment.created|timesince}} ago </p>
                     <p> by <b style="color:green">{{comment.comment_user}}</b></p>
                 </div>
                 <div class="replys">
                     {% for reply in replys %}
-
                     <div id="replies">
                         <h3> {{ reply }} </h3>
+                        <p>{{reply.created|timesince}} ago
+                        {% if reply.comment_user == request.user or comment.comment_user == request.user %}
+                            <a href="{% url 'delete_reply' comment.id reply.id%}" class="btn btn-danger">Delete</a>
+                         {% endif%}
+                        </p>
                         <p> by <b style="color:green">{{reply.comment_user}}</b></p>
                     </div>
                     {% endfor %}

@@ -24,10 +24,12 @@ def File_upload(request):
         form = video_upload()
         return render(request, 'app/upload.html', {'form': form})
 
+
 def showvideo(request): # Show Video List in UI
     videos= Video.objects.filter(make_privet=False).order_by('-created_on')
     if videos is not None:
         return render(request, 'app/index.html', {'video': videos})
+
 
 @login_required(login_url='login')
 def add_ratting(request, video_id):
@@ -46,12 +48,12 @@ def add_ratting(request, video_id):
 
     return HttpResponseRedirect(url)
 
-@login_required(login_url='login')
+
 def play_video(request, id): # Show clicked Video with list into UI
     url = request.META.get('HTTP_REFERER')
     video = Video.objects.get(pk=id)
     list = Video.objects.all()
-    comments = Comment_Model.objects.filter(is_aproved=True, comment_video= video)
+    comments = Comment_Model.objects.filter(is_aproved=True, comment_video=video)
     ratings = Rating.objects.filter(video=video)
 
     if request.method =='POST':
@@ -89,45 +91,47 @@ def play_video(request, id): # Show clicked Video with list into UI
              'avg_rating': avg_rating, }
     return render(request, 'app/play.html', context)
 
-def CommentReply(request,vedioId, id):
+def CommentReply(request, id):
     url = request.META.get('HTTP_REFERER')
-    video = Video.objects.get(pk=vedioId)
-    parent_comment= Comment_Model.objects.get(pk=id)
-    child_comment = ReplyModel.objects.filter(comment_video=vedioId, comment=id)
+    parent_comment = Comment_Model.objects.get(pk=id)
+    child_comment = ReplyModel.objects.filter(comment=id)
     comment_form = ReplyCommentForm()
-    if request.method=='POST':
-        comment_form= ReplyCommentForm(request.POST)
+    if request.method == 'POST':
+        comment_form = ReplyCommentForm(request.POST)
         if comment_form.is_valid():
-            reply_obj= comment_form.save(commit=False)
-            reply_obj.comment_video= video
-            reply_obj.comment=parent_comment
-            reply_obj.comment_user=request.user
-            print(reply_obj.comment_user)
-            print(reply_obj)
+            reply_obj = comment_form.save(commit=False)
+            reply_obj.comment = parent_comment
+            reply_obj.comment_user = request.user
             reply_obj.save()
             return HttpResponseRedirect(url)
 
     context= {
-        'comment':parent_comment,
-        'replys':child_comment,
-        'form':comment_form
+        'comment': parent_comment,
+        'replys': child_comment,
+        'form': comment_form
 
     }
-    return render(request,'app/reply.html', context)
+    return render(request, 'app/reply.html', context)
 
 @login_required()
 def DeleteView(request, id):
-    video= Video.objects.get(pk=id)
+    url = request.META.get('HTTP_REFERER')
+    video = Video.objects.get(pk=id)
     video.delete()
-    return redirect('profile')
+    return HttpResponseRedirect(url)
 
 @login_required(login_url='login')
-def DeleteComment(request,id):
-    if request.user.is_authenticated:
-        comment = Comment_Model.objects.get(id=id)
-        video= str(comment.comment_video.id)
-        comment.delete()
-        link = '/play/'+video+'/'
-        return redirect(link)
+def DeleteComment(request, id):
+    url = request.META.get('HTTP_REFERER')
+    comment = Comment_Model.objects.get(pk=id)
+    comment.delete()
+    return HttpResponseRedirect(url)
 
+
+@login_required(login_url='login')
+def DeleteReply(request, comment, reply):
+    url = request.META.get('HTTP_REFERER')
+    reply_comment = ReplyModel.objects.get(pk=reply)
+    reply_comment.delete()
+    return HttpResponseRedirect(url)
 
