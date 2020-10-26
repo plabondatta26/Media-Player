@@ -6,15 +6,15 @@
       <change beforePath="$PROJECT_DIR$/Player/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/profile_pic.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/profile_pic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/templates/UserControl/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserControl/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserControl/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/js/jquery5.1.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/play.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/reply.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/reply.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,7 +39,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/manage.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ecommerce_project" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>

@@ -6,23 +6,24 @@ from app import views as app
 from UserControl import views as user
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about/', user.about_developer, name='about'),
 
-    path('', app.showvideo, name='home'),
-    path('upload/',app.File_upload, name='upload'),
+    path('', app.show_video, name='home'),
+    path('upload/', app.file_upload, name='upload'),
     path('play/<int:id>/', app.play_video, name='play'),
-    path('reply/<int:id>/', app.CommentReply, name='reply'),
-    path('delete/<int:id>/', app.DeleteView, name='delete'),
+    path('reply/<int:id>/', app.comment_reply, name='reply'),
+    path('delete/<int:id>/', app.delete_view, name='delete'),
     path('add_rating/<int:video_id>/', app.add_ratting, name='add_rating'),
-    path('delete_comment/<int:id>/', app.DeleteComment, name='delete_comment'),
-    path('delete_reply/<int:comment>/<reply>/', app.DeleteReply, name='delete_reply'),
+    path('delete_comment/<int:id>/', app.delete_comment, name='delete_comment'),
+    path('delete_reply/<int:comment>/<reply>/', app.delete_reply, name='delete_reply'),
 
 
-    path('login/', user.Loginview, name='login'),
-    path('logout/', user.LogoutView, name='logout'),
-    path('register/', user.RegisterView, name='register'),
-    path('profile/', user.Profile, name='profile'),
-    path('profile/update/', user.UpdateProfile, name='update_profile'),
-    path('profile/change_pp/', user.Profile_pic_upload, name='change_p_pic'),
+    path('login/', user.login_view, name='login'),
+    path('logout/', user.logout_view, name='logout'),
+    path('register/', user.register_view, name='register'),
+    path('profile/', user.profile, name='profile'),
+    path('profile/update/', user.update_profile, name='update_profile'),
+    path('profile/change_pp/', user.profile_pic_upload, name='change_p_pic'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

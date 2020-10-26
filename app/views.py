@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Video, Comment_Model, ReplyModel, Rating
-from .forms import video_upload, commentForm, ReplyCommentForm, RatingForm
+from .forms import VideoUpload, CommentForm, ReplyCommentForm, RatingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
@@ -8,24 +8,21 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 
 
-
 @login_required(login_url='login')
-def File_upload(request):
-    form= video_upload()
-    if request.user.is_authenticated:
-        user_id = User.objects.get(id=request.user.id)
-        if request.method=='POST':
-            form= video_upload(request.POST or None, request.FILES or None)
-            if form.is_valid():
-                form_obj = form.save(commit=False)
-                form_obj.user= user_id
-                form_obj.save()
-                return redirect('profile')
-        form = video_upload()
-        return render(request, 'app/upload.html', {'form': form})
+def file_upload(request):
+    form = VideoUpload()
+    user_id = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = VideoUpload(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form_obj = form.save(commit=False)
+            form_obj.user = user_id
+            form_obj.save()
+            return redirect('profile')
+    return render(request, 'app/upload.html', {'form': form})
 
 
-def showvideo(request): # Show Video List in UI
+def show_video(request): # Show Video List in UI
     videos= Video.objects.filter(make_privet=False).order_by('-created_on')
     if videos is not None:
         return render(request, 'app/index.html', {'video': videos})
@@ -52,14 +49,14 @@ def add_ratting(request, video_id):
 def play_video(request, id): # Show clicked Video with list into UI
     url = request.META.get('HTTP_REFERER')
     video = Video.objects.get(pk=id)
-    list = Video.objects.all()
+    list = Video.objects.all().order_by('-created_on')
     comments = Comment_Model.objects.filter(is_aproved=True, comment_video=video)
     ratings = Rating.objects.filter(video=video)
 
     if request.method =='POST':
         url = request.META.get('HTTP_REFERER')
         user_id = User.objects.get(id=request.user.id)
-        comment_form = commentForm(request.POST)
+        comment_form = CommentForm(request.POST)
 
         # comment section
         if comment_form.is_valid():
@@ -81,7 +78,7 @@ def play_video(request, id): # Show clicked Video with list into UI
 
 
     rating_form = RatingForm()
-    comment_form = commentForm()
+    comment_form = CommentForm()
     context={'video': video,
              'list': list,
              'comments': comments,
@@ -91,7 +88,9 @@ def play_video(request, id): # Show clicked Video with list into UI
              'avg_rating': avg_rating, }
     return render(request, 'app/play.html', context)
 
-def CommentReply(request, id):
+
+@login_required(login_url='login')
+def comment_reply(request, id):
     url = request.META.get('HTTP_REFERER')
     parent_comment = Comment_Model.objects.get(pk=id)
     child_comment = ReplyModel.objects.filter(comment=id)
@@ -113,15 +112,17 @@ def CommentReply(request, id):
     }
     return render(request, 'app/reply.html', context)
 
-@login_required()
-def DeleteView(request, id):
+
+@login_required(login_url='login')
+def delete_view(request, id):
     url = request.META.get('HTTP_REFERER')
     video = Video.objects.get(pk=id)
     video.delete()
     return HttpResponseRedirect(url)
 
+
 @login_required(login_url='login')
-def DeleteComment(request, id):
+def delete_comment(request, id):
     url = request.META.get('HTTP_REFERER')
     comment = Comment_Model.objects.get(pk=id)
     comment.delete()
@@ -129,7 +130,7 @@ def DeleteComment(request, id):
 
 
 @login_required(login_url='login')
-def DeleteReply(request, comment, reply):
+def delete_reply(request, comment, reply):
     url = request.META.get('HTTP_REFERER')
     reply_comment = ReplyModel.objects.get(pk=reply)
     reply_comment.delete()

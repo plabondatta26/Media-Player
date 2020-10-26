@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
+
+
 class Video(models.Model):
     title = models.CharField(max_length=100)
     file = models.FileField(upload_to='videos/', null=True, verbose_name="")

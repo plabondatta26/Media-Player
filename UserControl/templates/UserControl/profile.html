@@ -53,52 +53,55 @@
 </head>
 <body>
 
-<div class="container" id="prp">
-    <div class="row">
-        <div class=" container">
-            <div class="row">
-                <div class="col-md-3" id="profile_picture">
-                    {% if details.image %}
-                        <img src="{{details.image.url}}" alt="User picture" class="profile_pic">
-                    {% else %}
-                        <img src="{% static 'profiledefult_image/avatar.jpg' %}" alt="User picture" class="profile_pic">
-                    {% endif %}
-                    <a href="{%url 'change_p_pic' %}" id="change_pp"><i class="fa fa-camera"></i> Change profile picture</a>
-                </div>
+    <div class="container" id="prp">
+        <div class="row">
+            <div class=" container">
+                <div class="row">
+                    <div class="col-md-3" id="profile_picture">
+                        {% if details.image %}
+                            <img src="{{details.image.url}}" alt="User picture" class="profile_pic">
+                        {% else %}
+                            <img src="{% static 'profiledefult_image/avatar.jpg' %}" alt="User picture" class="profile_pic">
+                        {% endif %}
+                        <a href="{%url 'change_p_pic' %}" id="change_pp"><i class="fa fa-camera"></i> Change profile picture</a>
+                    </div>
 
-                <div class="col-md-6" id="details_area">
-                    <h1> Name: {{details.name}}</h1>
-                    <h6>Contact: {{details.contact}} </h6>
-                    <h6>Email: {{details.user.username}} </h6>
-                    <h6>Birthday: {{details.birthday}} </h6>
-                    <h6>address: {{details.address}} </h6>
-                    <a href="{% url 'update_profile'%}" class="btn btn-warning">Update Profile</a>
+                    <div class="col-md-6" id="details_area">
+                        <h1> Name: {{details.name}}</h1>
+                        <h6>Contact: {{details.contact}} </h6>
+                        <h6>Email: {{details.user.username}} </h6>
+                        <h6>Birthday: {{details.birthday}} </h6>
+                        <h6>address: {{details.address}} </h6>
+                        <a href="{% url 'update_profile'%}" class="btn btn-warning">Update Profile</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        {% for post in posts %}
-        <div class="col-md-3">
-                <video style="width:300px;height:300px" >
-                    <source src='{{MEDIA_URL}}{{post.file}}' type="video/mp4">
-                </video>
-                <a href="{% url 'play' post.id %}" ><h2>{{post.title}}</h2></a> <br>
-                <h6>{{post.created_on}}</h6>
 
-                {%if post.make_privet is True%}
-                    <h6 style="color:red">Privet video</h6>
-                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
-                {%else%}
-                    <h6 style="color:green">public video</h6>
-                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
-                {%endif%}
-        {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-3" style="height:400px; width:100%; padding:5px;">
+                    <video style="width:300px;height:300px margin:5px" >
+                        <source src='{{MEDIA_URL}}{{post.file}}' type="video/mp4">
+                    </video>
+                    <a href="{% url 'play' post.id %}" ><h2 style="margin:2px">{{post.title}}</h2></a> <br>
+                    <h6>{{post.created_on}}</h6>
+
+                    {%if post.make_privet is True%}
+                        <h6 style="color:red">Privet video</h6>
+                        <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
+                    {%else%}
+                        <h6 style="color:green">public video</h6>
+                        <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a><br>
+                    {%endif%}
+            </div>
+            {% endfor %}
+
         </div>
     </div>
-</div>
 
 
 <script src="{%static 'app/js/jquery.js'%}"></script>

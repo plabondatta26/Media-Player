@@ -3,13 +3,14 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CreateProfile
 
+
 class RegisterForm(UserCreationForm):
     class Meta:
         model=User
         fields= ['username', 'password1', 'password2']
 
 
-class Update_Profile(forms.ModelForm):
+class UpdateProfile(forms.ModelForm):
     class Meta:
         model = CreateProfile
         fields = ['name', 'contact', 'address','birthday']
@@ -28,7 +29,8 @@ class Update_Profile(forms.ModelForm):
 
         }
 
-class Update_Profile_Pic(forms.ModelForm):
+
+class UpdateProfilePic(forms.ModelForm):
     class Meta:
         model = CreateProfile
         fields = ['image', ]

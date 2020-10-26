@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reply</title>
-    <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
+    <title>About</title>
+     <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px;    ">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius:4px">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -47,44 +46,11 @@
                 {%endif%}
         </div>
     </nav>
-
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 ">
-                <div id="parent">
-                    <h1>{{comment}}</h1>
-                    <p>{{comment.created|timesince}} ago </p>
-                    <p> by <b style="color:green">{{comment.comment_user}}</b></p>
-                </div>
-                <div class="replys">
-                    {% for reply in replys %}
-                    <div id="replies">
-                        <h3> {{ reply }} </h3>
-                        <p>{{reply.created|timesince}} ago
-                        {% if reply.comment_user == request.user or comment.comment_user == request.user %}
-                            <a href="{% url 'delete_reply' comment.id reply.id%}" class="btn btn-danger">Delete</a>
-                         {% endif%}
-                        </p>
-                        <p> by <b style="color:green">{{reply.comment_user}}</b></p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+<script src="{%static 'app/js/jquery.js'%}"></script>
+<script src="{%static 'app/js/popper.js'%}"></script>
+<script src="{%static 'app/js/bootstrap.min.js'%}"></script>
 
-            <div class="col-lg-6">
-                <form action="" method="post" id="replyfield" class="alert alert-warning">
-                     {%csrf_token%}
-                    <textarea class="reply_box" id="reply" name="reply"></textarea>
-                    <input type="submit" value="Leave a reply" id="replybtn" class="btn btn-secondary">
-                </form>
-            </div>
-        </div>
-    </div>
-
-<script src="{% static 'app/js/jquery.js'%}"></script>
-<script src="{% static 'app/js/popper.js'%}"></script>
-<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
 </body>
 </html>

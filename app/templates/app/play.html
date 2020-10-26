@@ -4,36 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>play</title>
-    <script>
-        function checkboxClick(){
-        var checkBox1 = document.getElementById("star1");
-        var checkBox2 = document.getElementById("star2");
-        var checkBox3 = document.getElementById("star3");
-        var checkBox4 = document.getElementById("star4");
-        var checkBox5 = document.getElementById("star5");
 
-        if (checkBox5.checked == true){
-                checkBox4.checked =true;
-                checkBox3.checked =true;
-                checkBox2.checked =true;
-                checkBox1.checked =true;
-        }
-        else if (checkBox4.checked == true){
-                checkBox3.checked =true;
-                checkBox2.checked =true;
-                checkBox1.checked =true;
-        }
-        else if (checkBox3.checked == true){
-                checkBox2.checked =true;
-                checkBox1.checked =true;
-        }
-        else(checkBox2.checked == true){
-                checkBox1.checked =true;
-        }
-
-  }
-        }
-    </script>
     <link rel="stylesheet" href="{%static 'app/css/all.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/bootstrap.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{%static 'app/css/style.css'%}" type="text/css">
@@ -123,7 +94,7 @@
 
                              <form action="" method="post" id="comment_form">
                                 {% csrf_token %}
-                                 <div  >
+                                 <div>
                                      <textarea type="text" class="form-group" id="comment" name="comment"></textarea>
                                      <input type="submit" class="form-group btn btn-success" style="margin-bottom:70px" value="Comment">
                                  </div>
@@ -151,12 +122,15 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
                 {%for l in list %}
-                    <div>
+                {% if l.id is not video.id %}
+                <div>
                         <a href="{% url 'play' l.id %}" style="color:black"><h3>{{l.title}}</h3></a>
                         <video style="max-width:200px; height:auto">
                             <source src="{{ MEDIA_URL }}{{ l.file }}"  type="video/mp4">
                         </video>
                     </div>
+                {% endif %}
+
                 <br>
                 {%endfor%}
             </div>
@@ -168,7 +142,6 @@
 <script src="{% static 'app/js/popper.js'%}"></script>
 <script src="{% static 'app/js/all.min.js'%}"></script>
 <script src="{% static 'app/js/bootstrap.min.js'%}"></script>
-<script src="{% static 'app/js/jquery5.1.js'%}"></script>
 
 </body>
 </html>

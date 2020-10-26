@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404, HttpResponseRedirect
-from .forms import RegisterForm, Update_Profile, Update_Profile_Pic#, Captcha
+from .forms import RegisterForm, UpdateProfile, UpdateProfilePic#, Captcha
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -9,7 +9,9 @@ from django.contrib import messages
 
 
 # Create your views here.
-def Loginview(request):
+
+
+def login_view(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -25,11 +27,10 @@ def Loginview(request):
         return render(request, 'UserControl/login.html')
 
 
-
-def RegisterView(request):
+def register_view(request):
     form = RegisterForm()
     if request.method == 'POST':
-        form= RegisterForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
@@ -40,16 +41,14 @@ def RegisterView(request):
     return render(request, 'UserControl/register.html', context)
 
 
-
-
 @login_required(login_url='login')
-def LogoutView(request):
+def logout_view(request):
     logout(request)
     return redirect('home')
 
 
 @login_required(login_url='login')
-def Profile(request):
+def profile(request):
     usr= request.user
     details =get_object_or_404(CreateProfile, user=usr)
     posts = Video.objects.filter(user=usr)
@@ -57,12 +56,11 @@ def Profile(request):
 
 
 @login_required(login_url='login')
-def UpdateProfile(request):
-
+def update_profile(request):
     profile = CreateProfile.objects.get(user=request.user)
-    form= Update_Profile(instance=profile)
+    form= update_profile(instance=profile)
     if request.method=='POST':
-        form= Update_Profile(request.POST, instance=profile)
+        form= update_profile(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
@@ -73,15 +71,20 @@ def UpdateProfile(request):
     }
     return render(request, 'UserControl/UpdateProfile.html', context)
 
+
 @login_required(login_url='login')
-def Profile_pic_upload(request):
+def profile_pic_upload(request):
     profile = CreateProfile.objects.get(user=request.user)
-    form = Update_Profile_Pic(instance=profile)
+    form = UpdateProfilePic(instance=profile)
     if request.method == 'POST':
-        form = Update_Profile_Pic(request.POST, request.FILES, instance=profile)
+        form = UpdateProfilePic(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
     return render(request, 'UserControl/profile_pic.html', {'form': form})
+
+
+def about_developer(reqest):
+    return
 
 
